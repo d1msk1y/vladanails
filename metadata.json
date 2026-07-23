@@ -1,0 +1,6 @@
+{
+  "name": "Vlada Nagelstudio",
+  "description": "Minimalistic mobile-first nail salon website in German.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
