@@ -15,6 +15,7 @@ type Service = {
 export function Services() {
   const [activeService, setActiveService] = useState<Service | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const inspoOne = new URL("../../assets/.aistudio/imgs/inspo1.jpeg", import.meta.url).href;
 
   const services: Service[] = [
     {
@@ -104,34 +105,40 @@ export function Services() {
   };
 
   return (
-    <section id="services" className="py-12 bg-white px-6 md:px-12">
-      <div className="max-w-3xl mx-auto">
-        <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12 gap-4">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">
+    <section id="services" className="services-section">
+      <div className="services-container">
+        <div className="mb-8 gap-4">
+          <h2 className="section-title section-title--services">
             Meine<br />Dienstleistungen
           </h2>
         </div>
 
-        <div className="flex flex-col gap-0">
+        <div className="services-list">
           {services.map((service) => (
             <button 
               key={service.id} 
               onClick={() => openService(service)}
-              className="flex justify-between items-center py-6 border-b border-brand-dark/10 group hover:bg-[#FAF7F5] transition-colors w-full text-left px-2 md:px-4 -mx-2 md:-mx-4 rounded-lg"
+              className="service-row"
             >
-              <div className="flex flex-col gap-1 pr-4">
-                <h3 className="text-base md:text-lg font-medium text-brand-dark group-hover:text-[#B87F75] transition-colors">
+              <div className="service-row__content">
+                <h3 className="service-row__title">
                   {service.title}
                 </h3>
-                <p className="text-xs md:text-sm text-brand-dark/60 italic font-light">
+                <p className="service-row__description">
                   {service.description}
                 </p>
               </div>
-              <div className="text-xl md:text-2xl font-serif text-[#D1A3A3]">
+              <div className="service-row__price">
                 {service.price}
               </div>
             </button>
           ))}
+        </div>
+
+        <div className="aesthetic-strip-grid services-strip-grid services-strip-grid--bottom">
+          <figure className="aesthetic-strip-card aesthetic-strip-card--supporting aesthetic-strip-card--services-bottom">
+            <img className="aesthetic-strip-image" src={inspoOne} alt="Aesthetic nail polish look 1" />
+          </figure>
         </div>
       </div>
 
@@ -142,7 +149,7 @@ export function Services() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-6 bg-brand-dark/40 backdrop-blur-sm"
+            className="modal-backdrop"
             onClick={closeService}
           >
             <motion.div
@@ -150,19 +157,17 @@ export function Services() {
               animate={{ y: 0, opacity: 1, scale: 1 }}
               exit={{ y: 20, opacity: 0, scale: 0.95 }}
               transition={{ type: "spring", bounce: 0, duration: 0.4 }}
-              className="bg-white w-full max-w-2xl rounded-[2rem] overflow-hidden flex flex-col max-h-[90vh] shadow-2xl relative"
+              className="modal-card"
               onClick={(e) => e.stopPropagation()}
             >
-              {/* Close Button */}
               <button 
                 onClick={closeService}
-                className="absolute top-4 right-4 z-10 w-10 h-10 bg-white/80 backdrop-blur text-brand-dark rounded-full flex items-center justify-center hover:bg-white transition-colors"
+                className="modal-close"
               >
                 <X size={20} />
               </button>
 
-              {/* Image Carousel */}
-              <div className="relative w-full h-64 md:h-80 shrink-0 bg-[#FAF7F5]">
+              <div className="carousel">
                 <AnimatePresence initial={false} mode="wait">
                   <motion.img
                     key={currentImageIndex}
@@ -172,66 +177,61 @@ export function Services() {
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="absolute inset-0 w-full h-full object-cover"
+                    className="carousel-image"
                   />
                 </AnimatePresence>
-                
-                {/* Carousel Controls */}
-                <div className="absolute inset-0 flex items-center justify-between p-4">
+
+                <div className="carousel-controls">
                   <button 
                     onClick={prevImage}
-                    className="w-10 h-10 bg-white/50 backdrop-blur hover:bg-white/90 text-brand-dark rounded-full flex items-center justify-center transition-colors"
+                    className="carousel-button"
                   >
                     <ChevronLeft size={24} />
                   </button>
                   <button 
                     onClick={nextImage}
-                    className="w-10 h-10 bg-white/50 backdrop-blur hover:bg-white/90 text-brand-dark rounded-full flex items-center justify-center transition-colors"
+                    className="carousel-button"
                   >
                     <ChevronRight size={24} />
                   </button>
                 </div>
-                
-                {/* Carousel Indicators */}
-                <div className="absolute bottom-4 left-0 right-0 flex justify-center gap-2">
+
+                <div className="carousel-indicators">
                   {activeService.images.map((_, idx) => (
                     <div 
                       key={idx} 
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        idx === currentImageIndex ? "w-6 bg-white" : "w-1.5 bg-white/50"
-                      }`}
+                      className={`carousel-indicator ${idx === currentImageIndex ? "carousel-indicator--active" : "carousel-indicator--inactive"}`}
                     />
                   ))}
                 </div>
               </div>
 
-              {/* Modal Content */}
-              <div className="p-6 md:p-8 flex flex-col flex-grow overflow-y-auto">
-                <div className="flex justify-between items-start mb-4 gap-4">
+              <div className="service-detail">
+                <div className="service-detail__header">
                   <div>
-                    <h3 className="text-2xl md:text-3xl font-serif text-brand-dark mb-2">
+                    <h3 className="service-detail__title">
                       {activeService.title}
                     </h3>
-                    <div className="flex items-center gap-2 text-xs font-medium uppercase tracking-widest text-[#8C6B66]">
+                    <div className="service-detail__meta">
                       <Clock size={14} />
                       <span>{activeService.time}</span>
                     </div>
                   </div>
-                  <div className="text-2xl md:text-3xl font-serif text-[#D1A3A3]">
+                  <div className="service-detail__price">
                     {activeService.price}
                   </div>
                 </div>
 
-                <p className="text-sm md:text-base text-brand-dark/80 leading-relaxed mb-8">
+                <p className="service-detail__description">
                   {activeService.longDescription}
                 </p>
 
-                <div className="mt-auto pt-6 border-t border-brand-dark/10">
+                <div className="service-detail__footer">
                   <a
                     href="https://cal.com/"
                     target="_blank"
                     rel="noreferrer"
-                    className="flex justify-center bg-[#D1A3A3] text-white px-8 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#B87F75] transition-colors w-full text-center"
+                    className="booking-button"
                   >
                     Termin Buchen
                   </a>

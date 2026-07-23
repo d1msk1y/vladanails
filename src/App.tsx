@@ -6,16 +6,18 @@
 import { Navbar } from "./components/Navbar";
 import { Hero } from "./components/Hero";
 import { About } from "./components/About";
+import { AestheticStrip } from "./components/AestheticStrip";
 import { Services } from "./components/Services";
 import { Footer } from "./components/Footer";
 
 export default function App() {
   return (
-    <div className="min-h-screen selection:bg-brand-pink selection:text-brand-dark">
+    <div className="site-shell">
       <Navbar />
       <main>
         <Hero />
         <About />
+        <AestheticStrip />
         <Services />
       </main>
       <Footer />
