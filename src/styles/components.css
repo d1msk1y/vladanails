@@ -1,4 +1,10 @@
 @layer components {
+  .site-shell {
+    width: 100%;
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+
   .app-shell {
     min-height: 100vh;
   }
@@ -6,8 +12,10 @@
   .site-header {
     position: fixed;
     top: 0;
+    left: 50%;
+    transform: translateX(-50%);
     z-index: 50;
-    width: 100%;
+    width: min(100%, 1024px);
     padding: 1rem 0;
     transition: padding 300ms ease, background-color 300ms ease, box-shadow 300ms ease, backdrop-filter 300ms ease;
   }
@@ -1286,7 +1294,7 @@
     }
   }
 
-  @media (max-width: 430px) {
+  @media (max-width: 390px) {
     .modal-backdrop {
       align-items: stretch;
       justify-content: stretch;
