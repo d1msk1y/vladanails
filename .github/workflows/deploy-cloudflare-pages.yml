@@ -1,51 +1,56 @@
-name: Deploy to Cloudflare Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
     branches:
       - main
-      - "**"
   workflow_dispatch:
 
 permissions:
   contents: read
-  deployments: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v5
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
 
       - name: Install dependencies
         run: npm ci
 
       - name: Build app
-        run: npm run build
+        run: npm run build -- --base "/${{ github.event.repository.name }}/"
 
-      - name: Deploy to Cloudflare Pages
-        id: deploy
-        uses: cloudflare/wrangler-action@v3
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
         with:
-          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
-          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy dist --project-name=${{ vars.CLOUDFLARE_PAGES_PROJECT_NAME }}
-          gitHubToken: ${{ secrets.GITHUB_TOKEN }}
+          path: dist
 
-      - name: Publish deployment URLs
-        if: success()
-        run: |
-          {
-            echo "### Cloudflare Pages deployment"
-            echo ""
-            echo "- Deployment URL: ${{ steps.deploy.outputs.deployment-url }}"
-            echo "- Branch alias URL: ${{ steps.deploy.outputs.pages-deployment-alias-url }}"
-          } >> "$GITHUB_STEP_SUMMARY"
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
