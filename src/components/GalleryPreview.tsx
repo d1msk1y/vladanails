@@ -3,8 +3,8 @@ type GalleryPreviewProps = {
 };
 
 export function GalleryPreview({ onNavigate }: GalleryPreviewProps) {
-  const galleryPreviewOne = new URL("../../assets/.aistudio/imgs/studio.jpeg", import.meta.url).href;
-  const galleryPreviewTwo = new URL("../../assets/.aistudio/imgs/gel1.jpeg", import.meta.url).href;
+  const galleryPreviewOne = new URL("../../assets/imgs/studio.jpeg", import.meta.url).href;
+  const galleryPreviewTwo = new URL("../../assets/imgs/gel1.jpeg", import.meta.url).href;
 
   return (
     <section className="gallery-preview-section">

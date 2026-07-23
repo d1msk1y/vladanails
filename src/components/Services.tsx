@@ -16,30 +16,30 @@ type Service = {
 export function Services() {
   const [activeService, setActiveService] = useState<Service | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const inspoOne = new URL("../../assets/.aistudio/imgs/inspo1.jpeg", import.meta.url).href;
+  const inspoOne = new URL("../../assets/imgs/inspo1.jpeg", import.meta.url).href;
   const serviceImages = {
     manicureClassic: [
-      new URL("../../assets/.aistudio/imgs/gel1.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel4.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel8.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel1.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel4.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel8.jpeg", import.meta.url).href,
     ],
     manicureGel: [
-      new URL("../../assets/.aistudio/imgs/gel2.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel3.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel5.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel6.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel7.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/gel9.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel2.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel3.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel5.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel6.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel7.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/gel9.jpeg", import.meta.url).href,
     ],
     pedicureClassic: [
-      new URL("../../assets/.aistudio/imgs/pedicure1.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/studio.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/inspo4.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/pedicure1.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/studio.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/inspo4.jpeg", import.meta.url).href,
     ],
     pedicureSpa: [
-      new URL("../../assets/.aistudio/imgs/pedicure1.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/studio.jpeg", import.meta.url).href,
-      new URL("../../assets/.aistudio/imgs/inspo3.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/pedicure1.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/studio.jpeg", import.meta.url).href,
+      new URL("../../assets/imgs/inspo3.jpeg", import.meta.url).href,
     ],
   };
 
