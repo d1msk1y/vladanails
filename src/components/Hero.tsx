@@ -103,7 +103,7 @@ export function Hero() {
 
           {/* Description */}
           <p className="text-[1.03rem] md:text-lg text-brand-dark/80 mb-10 sm:mb-12 max-w-md leading-relaxed [@media(min-height:800px)]:text-[1.08rem]">
-            Erleben Sie erstklassige Nagelpflege in einem entspannten Ambiente. Wir vereinen Ästhetik mit höchster Qualität.
+            Erleben Sie erstklassige Nagelpflege in einem entspannten Ambiente. Ich vereine Ästhetik mit höchster Qualität.
           </p>
           
           {/* CTA Button */}

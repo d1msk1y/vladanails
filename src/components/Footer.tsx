@@ -10,7 +10,7 @@ export function Footer() {
         </h2>
         
         <p className="text-brand-light/80 text-base md:text-lg max-w-md mx-auto mb-12">
-          Gönne dir eine Auszeit und lass dich von uns verwöhnen. Wir freuen uns auf deinen Besuch im Nagelstudio Vlada.
+          Gönne dir eine Auszeit und lass dich von mir verwöhnen. Ich freue mich auf deinen Besuch im Nagelstudio Vlada.
         </p>
 
         <a

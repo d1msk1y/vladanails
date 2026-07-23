@@ -21,7 +21,7 @@ export function Services() {
       id: "manicure",
       title: "Maniküre Klassik",
       description: "Formgebung, Nagelhautpflege & Handmassage",
-      longDescription: "Unsere klassische Maniküre bietet eine schonende Pflege für Ihre Naturnägel. Nach einem entspannenden Handbad werden Ihre Nägel schonend in die gewünschte Form gefeilt, die Nagelhaut sanft entfernt und die Hände mit einer wohltuenden Massage und reichhaltigen Pflegeprodukten verwöhnt.",
+      longDescription: "Meine klassische Maniküre bietet eine schonende Pflege für Ihre Naturnägel. Nach einem entspannenden Handbad werden Ihre Nägel schonend in die gewünschte Form gefeilt, die Nagelhaut sanft entfernt und die Hände mit einer wohltuenden Massage und reichhaltigen Pflegeprodukten verwöhnt.",
       price: "35€",
       time: "45 Min",
       images: [
@@ -60,7 +60,7 @@ export function Services() {
       id: "pedicure-spa",
       title: "Pediküre + Feet Care",
       description: "Intensive Tiefenpflege mit Peeling & Maske",
-      longDescription: "Das ultimative Verwöhnprogramm für Ihre Füße. Aufbauend auf unserer klassischen Pediküre erhalten Sie ein verfeinerndes Peeling, das abgestorbene Hautschüppchen sanft löst. Eine intensiv pflegende Fußmaske und eine tiefgehende Fußmassage sorgen für maximale Entspannung und langanhaltende Geschmeidigkeit.",
+      longDescription: "Das ultimative Verwöhnprogramm für Ihre Füße. Aufbauend auf meiner klassischen Pediküre erhalten Sie ein verfeinerndes Peeling, das abgestorbene Hautschüppchen sanft löst. Eine intensiv pflegende Fußmaske und eine tiefgehende Fußmassage sorgen für maximale Entspannung und langanhaltende Geschmeidigkeit.",
       price: "65€",
       time: "75 Min",
       images: [
@@ -108,7 +108,7 @@ export function Services() {
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12 gap-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">
-            Unsere<br />Dienstleistungen
+            Meine<br />Dienstleistungen
           </h2>
         </div>
 
