@@ -94,7 +94,7 @@ export function Hero() {
           </p>
 
           <a
-            href="https://cal.com/"
+            href="https://cal.eu/vladanails"
             target="_blank"
             rel="noreferrer"
             className="hero-button"

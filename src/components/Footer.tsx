@@ -13,7 +13,7 @@ export function Footer() {
         </p>
 
         <a
-          href="https://cal.com/"
+          href="https://cal.eu/vladanails"
           target="_blank"
           rel="noreferrer"
           className="footer-button"
@@ -27,7 +27,7 @@ export function Footer() {
         <div className="footer-links">
           <a href="#" className="footer-link">Impressum</a>
           <a href="#" className="footer-link">Datenschutz</a>
-          <a href="#" className="footer-link">Instagram</a>
+          <a href="https://www.instagram.com/nails_v3837/" target="_blank" rel="noreferrer" className="footer-link">Instagram</a>
         </div>
       </div>
     </footer>

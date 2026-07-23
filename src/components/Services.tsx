@@ -9,6 +9,7 @@ type Service = {
   longDescription: string;
   price: string;
   time: string;
+  bookingUrl: string;
   images: string[];
 };
 
@@ -16,59 +17,72 @@ export function Services() {
   const [activeService, setActiveService] = useState<Service | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const inspoOne = new URL("../../assets/.aistudio/imgs/inspo1.jpeg", import.meta.url).href;
+  const serviceImages = {
+    manicureClassic: [
+      new URL("../../assets/.aistudio/imgs/gel1.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel4.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel8.jpeg", import.meta.url).href,
+    ],
+    manicureGel: [
+      new URL("../../assets/.aistudio/imgs/gel2.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel3.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel5.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel6.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel7.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/gel9.jpeg", import.meta.url).href,
+    ],
+    pedicureClassic: [
+      new URL("../../assets/.aistudio/imgs/pedicure1.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/studio.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/inspo4.jpeg", import.meta.url).href,
+    ],
+    pedicureSpa: [
+      new URL("../../assets/.aistudio/imgs/pedicure1.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/studio.jpeg", import.meta.url).href,
+      new URL("../../assets/.aistudio/imgs/inspo3.jpeg", import.meta.url).href,
+    ],
+  };
 
   const services: Service[] = [
     {
       id: "manicure",
-      title: "Maniküre Klassik",
+      title: "Maniküre",
       description: "Formgebung, Nagelhautpflege & Handmassage",
       longDescription: "Meine klassische Maniküre bietet eine schonende Pflege für Ihre Naturnägel. Nach einem entspannenden Handbad werden Ihre Nägel schonend in die gewünschte Form gefeilt, die Nagelhaut sanft entfernt und die Hände mit einer wohltuenden Massage und reichhaltigen Pflegeprodukten verwöhnt.",
-      price: "35€",
-      time: "45 Min",
-      images: [
-        "https://images.unsplash.com/photo-1519014816548-bf5fe059e98b?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1632832791334-08fceb5c4004?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=800&auto=format&fit=crop"
-      ],
+      price: "35.-",
+      time: "60 Min",
+      bookingUrl: "https://cal.eu/vladanails/manicure",
+      images: serviceImages.manicureClassic,
     },
     {
       id: "manicure-gel",
-      title: "Maniküre + Gel",
+      title: "Maniküre mit Gel",
       description: "UV-Lack für bis zu 3 Wochen Haltbarkeit",
       longDescription: "Zusätzlich zur klassischen Maniküre wird ein hochwertiger UV-Lack in Ihrer Wunschfarbe aufgetragen. Der Gellack sorgt für sofort trockene Nägel, brillanten Glanz und einen kratzfesten Halt von bis zu drei Wochen. Ideal für den stressigen Alltag oder besondere Anlässe.",
-      price: "55€",
-      time: "60 Min",
-      images: [
-        "https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1595856417551-614b1ccdf877?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1512496015851-a1dcafafca17?q=80&w=800&auto=format&fit=crop"
-      ],
+      price: "55.-",
+      time: "120 Min",
+      bookingUrl: "https://cal.eu/vladanails/manicure-gel",
+      images: serviceImages.manicureGel,
     },
     {
       id: "pedicure",
       title: "Pediküre",
       description: "Revitalisierendes Fußbad & Hornhautentfernung",
       longDescription: "Gönnen Sie Ihren Füßen eine Auszeit. Nach einem erfrischenden und revitalisierenden Fußbad werden die Nägel gekürzt und geformt. Die sanfte und gründliche Hornhautentfernung macht Ihre Füße wieder streichelzart. Eine kleine Abschlussmassage rundet das Pflegeerlebnis ab.",
-      price: "45€",
-      time: "45 Min",
-      images: [
-        "https://images.unsplash.com/photo-1516975080661-46b08078df42?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1534065602766-384da18b4ddb?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1508609590684-2a6231362e5b?q=80&w=800&auto=format&fit=crop"
-      ],
+      price: "75.-",
+      time: "90 Min",
+      bookingUrl: "https://cal.eu/vladanails/pedicure",
+      images: serviceImages.pedicureClassic,
     },
     {
       id: "pedicure-spa",
-      title: "Pediküre + Feet Care",
+      title: "Pediküre mit Hautpflege",
       description: "Intensive Tiefenpflege mit Peeling & Maske",
       longDescription: "Das ultimative Verwöhnprogramm für Ihre Füße. Aufbauend auf meiner klassischen Pediküre erhalten Sie ein verfeinerndes Peeling, das abgestorbene Hautschüppchen sanft löst. Eine intensiv pflegende Fußmaske und eine tiefgehende Fußmassage sorgen für maximale Entspannung und langanhaltende Geschmeidigkeit.",
-      price: "65€",
-      time: "75 Min",
-      images: [
-        "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=800&auto=format&fit=crop",
-        "https://images.unsplash.com/photo-1515377905703-c4788e51af15?q=80&w=800&auto=format&fit=crop"
-      ],
+      price: "85.-",
+      time: "120 Min",
+      bookingUrl: "https://cal.eu/vladanails/pedicure-mit-hautpflege",
+      images: serviceImages.pedicureSpa,
     },
   ];
 
@@ -228,7 +242,7 @@ export function Services() {
 
                 <div className="service-detail__footer">
                   <a
-                    href="https://cal.com/"
+                    href={activeService.bookingUrl}
                     target="_blank"
                     rel="noreferrer"
                     className="booking-button"

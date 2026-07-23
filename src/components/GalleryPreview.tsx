@@ -30,10 +30,7 @@ export function GalleryPreview({ onNavigate }: GalleryPreviewProps) {
 
         <div className="gallery-preview-grid">
           <figure className="gallery-preview-card gallery-preview-card--large">
-            <img className="gallery-preview-image" src={galleryPreviewOne} alt="Studio preview" />
-          </figure>
-          <figure className="gallery-preview-card gallery-preview-card--small">
-            <img className="gallery-preview-image" src={galleryPreviewTwo} alt="Nail polish preview" />
+            <img className="gallery-preview-image gallery-preview-image--studio" src={galleryPreviewOne} alt="Studio preview" />
           </figure>
         </div>
       </div>
