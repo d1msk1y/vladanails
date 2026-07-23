@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 
-export function Navbar() {
+type NavbarProps = {
+  currentPath: string;
+  onNavigate: (path: string) => void;
+};
+
+export function Navbar({ currentPath, onNavigate }: NavbarProps) {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -16,7 +21,14 @@ export function Navbar() {
       className={`site-header ${scrolled ? "site-header--scrolled" : ""}`}
     >
       <div className="site-header__inner">
-        <a href="#" className="site-brand">
+        <a
+          href="/"
+          className="site-brand"
+          onClick={(event) => {
+            event.preventDefault();
+            onNavigate("/");
+          }}
+        >
           VLADA
         </a>
 
@@ -28,7 +40,14 @@ export function Navbar() {
               </a>
             </li>
             <li>
-              <a href="#gallery" className="site-nav__link">
+              <a
+                href="/gallery"
+                className={`site-nav__link ${currentPath === "/gallery" ? "site-nav__link--active" : ""}`}
+                onClick={(event) => {
+                  event.preventDefault();
+                  onNavigate("/gallery");
+                }}
+              >
                 Galerie
               </a>
             </li>
