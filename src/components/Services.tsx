@@ -104,15 +104,12 @@ export function Services() {
   };
 
   return (
-    <section id="services" className="py-24 bg-white px-6 md:px-12">
+    <section id="services" className="py-12 bg-white px-6 md:px-12">
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col md:flex-row md:justify-between md:items-end mb-12 gap-4">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-brand-dark">
             Unsere<br />Dienstleistungen
           </h2>
-          <p className="text-[10px] md:text-xs uppercase tracking-[0.2em] font-medium text-brand-dark/50 pb-2">
-            PREISE INKL.<br />MWST.
-          </p>
         </div>
 
         <div className="flex flex-col gap-0">
@@ -135,20 +132,6 @@ export function Services() {
               </div>
             </button>
           ))}
-        </div>
-
-        <div className="mt-16 bg-[#FAF7F5] rounded-3xl p-8 md:p-12 flex flex-col items-center text-center">
-          <h3 className="text-2xl md:text-3xl font-serif text-brand-dark mb-8">
-            Bereit für Ihr neues Ich?
-          </h3>
-          <a
-            href="https://cal.com/"
-            target="_blank"
-            rel="noreferrer"
-            className="bg-brand-dark text-brand-light px-8 py-3.5 rounded-full text-xs uppercase tracking-widest hover:bg-brand-dark/80 transition-colors w-full sm:w-auto"
-          >
-            JETZT TERMIN BUCHEN
-          </a>
         </div>
       </div>
 

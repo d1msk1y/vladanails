@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 export function Hero() {
   return (
-    <section className="relative w-full pt-32 pb-24 px-6 md:px-12 bg-[#FAF7F5] flex flex-col justify-center min-h-[90vh] overflow-hidden">
+    <section className="relative w-full px-6 md:px-12 bg-[#FAF7F5] flex flex-col justify-start [@media(min-height:800px)]:justify-center md:justify-center min-h-[100svh] md:min-h-[90vh] pt-24 sm:pt-28 md:pt-32 [@media(min-height:800px)]:pt-14 pb-16 sm:pb-20 md:pb-24 [@media(min-height:800px)]:pb-18 overflow-hidden">
       {/* Background Floating Shapes */}
       <div className="absolute inset-0 pointer-events-none z-0 overflow-hidden">
         {/* Abstract Almond Nail Shape */}
@@ -93,16 +93,16 @@ export function Hero() {
       </div>
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
-        <div className="max-w-2xl pt-12 md:pt-0">
+        <div className="max-w-2xl pt-8 sm:pt-12 md:pt-0 [@media(min-height:800px)]:max-w-[34rem]">
           {/* Title */}
-          <h1 className="text-6xl md:text-7xl lg:text-[5.5rem] leading-[1.1] font-serif text-brand-dark mb-8">
+          <h1 className="text-[3.2rem] sm:text-6xl md:text-7xl lg:text-[5.5rem] [@media(min-height:800px)]:text-[3.8rem] leading-[1.05] font-serif text-brand-dark mb-7 sm:mb-8">
             Deine<br />
             Hände,<br />
-            <span className="text-[#D1A3A3] italic">deine Vision.</span>
+            <span className="inline-block whitespace-nowrap text-[#D1A3A3] italic">deine Vision.</span>
           </h1>
 
           {/* Description */}
-          <p className="text-base md:text-lg text-brand-dark/80 mb-12 max-w-md leading-relaxed">
+          <p className="text-[1.03rem] md:text-lg text-brand-dark/80 mb-10 sm:mb-12 max-w-md leading-relaxed [@media(min-height:800px)]:text-[1.08rem]">
             Erleben Sie erstklassige Nagelpflege in einem entspannten Ambiente. Wir vereinen Ästhetik mit höchster Qualität.
           </p>
           
@@ -111,7 +111,7 @@ export function Hero() {
             href="https://cal.com/"
             target="_blank"
             rel="noreferrer"
-            className="inline-block border-2 border-[#D1A3A3] text-[#B87F75] px-8 py-4 rounded-full text-xs font-bold tracking-[0.2em] uppercase hover:bg-[#D1A3A3] hover:text-white transition-colors duration-300 bg-white/30 backdrop-blur-sm"
+            className="inline-block border-2 border-[#D1A3A3] text-[#B87F75] px-8 py-4 sm:px-9 sm:py-4 rounded-full text-[0.8rem] font-bold tracking-[0.2em] uppercase hover:bg-[#D1A3A3] hover:text-white transition-colors duration-300 bg-white/30 backdrop-blur-sm [@media(min-height:800px)]:px-10 [@media(min-height:800px)]:py-5 [@media(min-height:800px)]:text-[0.82rem]"
           >
             Termin Buchen
           </a>
